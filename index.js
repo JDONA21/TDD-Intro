@@ -116,8 +116,7 @@ export function shareLastDigit(num1, num2) {
  * isColdAndHot(10, 50); // false
  */
 export function isColdAndHot(temp1, temp2) {
-  if (temp1 < 0 || temp2 > 100);
-  return true;
+  return (temp1 < 0 && temp2 > 100) || (temp1 > 100 && temp2 < 0);
 }
 
 /**
@@ -202,15 +201,10 @@ export function canEnterClub(you, date) {
  * shouldAnswerPhone(true, true, false); // true
  */
 export function shouldAnswerPhone(isMorning, isBoss, isAsleep) {
-  /* TODO */
-  if (isAsleep === false) {
+  if (isAsleep) {
     return false;
-  } else if (isMorning === true) {
-    if (isBoss) {
-      return true;
-    } else {
-      return false;
-    }
+  } else if (isMorning) {
+    return isBoss;
   } else {
     return true;
   }
